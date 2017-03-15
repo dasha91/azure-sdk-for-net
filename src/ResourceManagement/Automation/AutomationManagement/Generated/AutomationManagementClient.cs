@@ -294,6 +294,18 @@ namespace Microsoft.Azure.Management.Automation
             get { return this._jobStreams; }
         }
         
+        private ILinkedWorkspaceOperations _linkedWorkspace;
+        
+        /// <summary>
+        /// Service operation for automation linked workspace.  (see
+        /// http://aka.ms/azureautomationsdk/linkedworkspaceoperations for
+        /// more information)
+        /// </summary>
+        public virtual ILinkedWorkspaceOperations LinkedWorkspace
+        {
+            get { return this._linkedWorkspace; }
+        }
+        
         private IModuleOperations _modules;
         
         /// <summary>
@@ -304,6 +316,18 @@ namespace Microsoft.Azure.Management.Automation
         public virtual IModuleOperations Modules
         {
             get { return this._modules; }
+        }
+        
+        private IObjectDataTypeOperations _objectDataTypes;
+        
+        /// <summary>
+        /// Service operation for automation object data types.  (see
+        /// http://aka.ms/azureautomationsdk/objectdatatypeoperations for more
+        /// information)
+        /// </summary>
+        public virtual IObjectDataTypeOperations ObjectDataTypes
+        {
+            get { return this._objectDataTypes; }
         }
         
         private IRunbookDraftOperations _runbookDraft;
@@ -342,6 +366,18 @@ namespace Microsoft.Azure.Management.Automation
             get { return this._schedules; }
         }
         
+        private IStatisticsOperations _statistics;
+        
+        /// <summary>
+        /// Service operation for automation statistics.  (see
+        /// http://aka.ms/azureautomationsdk/statisticsoperations for more
+        /// information)
+        /// </summary>
+        public virtual IStatisticsOperations Statistics
+        {
+            get { return this._statistics; }
+        }
+        
         private ITestJobOperations _testJobs;
         
         /// <summary>
@@ -354,6 +390,30 @@ namespace Microsoft.Azure.Management.Automation
             get { return this._testJobs; }
         }
         
+        private ITypeFieldOperations _typeFields;
+        
+        /// <summary>
+        /// Service operation for automation type fields.  (see
+        /// http://aka.ms/azureautomationsdk/typefieldoperations for more
+        /// information)
+        /// </summary>
+        public virtual ITypeFieldOperations TypeFields
+        {
+            get { return this._typeFields; }
+        }
+        
+        private IUsageOperations _usages;
+        
+        /// <summary>
+        /// Service operation for automation usages.  (see
+        /// http://aka.ms/azureautomationsdk/usageoperations for more
+        /// information)
+        /// </summary>
+        public virtual IUsageOperations Usages
+        {
+            get { return this._usages; }
+        }
+        
         private IVariableOperations _variables;
         
         /// <summary>
@@ -364,6 +424,42 @@ namespace Microsoft.Azure.Management.Automation
         public virtual IVariableOperations Variables
         {
             get { return this._variables; }
+        }
+        
+        private IWatcherActionOperations _watcherActions;
+        
+        /// <summary>
+        /// Service operation for automation watcher actions.  (see
+        /// http://aka.ms/azureautomationsdk/watcheractionoperations for more
+        /// information)
+        /// </summary>
+        public virtual IWatcherActionOperations WatcherActions
+        {
+            get { return this._watcherActions; }
+        }
+        
+        private IWatcherOperations _watchers;
+        
+        /// <summary>
+        /// Service operation for automation watchers.  (see
+        /// http://aka.ms/azureautomationsdk/watcheroperations for more
+        /// information)
+        /// </summary>
+        public virtual IWatcherOperations Watchers
+        {
+            get { return this._watchers; }
+        }
+        
+        private IWatcherStreamOperations _watcherStreams;
+        
+        /// <summary>
+        /// Service operation for automation watcher streams.  (see
+        /// http://aka.ms/azureautomationsdk/watcherstreamoperations for more
+        /// information)
+        /// </summary>
+        public virtual IWatcherStreamOperations WatcherStreams
+        {
+            get { return this._watcherStreams; }
         }
         
         private IWebhookOperations _webhooks;
@@ -400,12 +496,20 @@ namespace Microsoft.Azure.Management.Automation
             this._jobs = new JobOperations(this);
             this._jobSchedules = new JobScheduleOperations(this);
             this._jobStreams = new JobStreamOperations(this);
+            this._linkedWorkspace = new LinkedWorkspaceOperations(this);
             this._modules = new ModuleOperations(this);
+            this._objectDataTypes = new ObjectDataTypeOperations(this);
             this._runbookDraft = new RunbookDraftOperations(this);
             this._runbooks = new RunbookOperations(this);
             this._schedules = new ScheduleOperations(this);
+            this._statistics = new StatisticsOperations(this);
             this._testJobs = new TestJobOperations(this);
+            this._typeFields = new TypeFieldOperations(this);
+            this._usages = new UsageOperations(this);
             this._variables = new VariableOperations(this);
+            this._watcherActions = new WatcherActionOperations(this);
+            this._watchers = new WatcherOperations(this);
+            this._watcherStreams = new WatcherStreamOperations(this);
             this._webhooks = new WebhookOperations(this);
             this._resourceNamespace = "Microsoft.Automation";
             this._apiVersion = "2014-06-01";
@@ -489,12 +593,20 @@ namespace Microsoft.Azure.Management.Automation
             this._jobs = new JobOperations(this);
             this._jobSchedules = new JobScheduleOperations(this);
             this._jobStreams = new JobStreamOperations(this);
+            this._linkedWorkspace = new LinkedWorkspaceOperations(this);
             this._modules = new ModuleOperations(this);
+            this._objectDataTypes = new ObjectDataTypeOperations(this);
             this._runbookDraft = new RunbookDraftOperations(this);
             this._runbooks = new RunbookOperations(this);
             this._schedules = new ScheduleOperations(this);
+            this._statistics = new StatisticsOperations(this);
             this._testJobs = new TestJobOperations(this);
+            this._typeFields = new TypeFieldOperations(this);
+            this._usages = new UsageOperations(this);
             this._variables = new VariableOperations(this);
+            this._watcherActions = new WatcherActionOperations(this);
+            this._watchers = new WatcherOperations(this);
+            this._watcherStreams = new WatcherStreamOperations(this);
             this._webhooks = new WebhookOperations(this);
             this._resourceNamespace = "Microsoft.Automation";
             this._apiVersion = "2014-06-01";
@@ -674,23 +786,23 @@ namespace Microsoft.Azure.Management.Automation
                     {
                         result.RequestId = httpResponse.Headers.GetValues("x-ms-request-id").FirstOrDefault();
                     }
+                    if (statusCode == HttpStatusCode.NotFound)
+                    {
+                        result.Status = OperationStatus.Failed;
+                    }
                     if (statusCode == HttpStatusCode.BadRequest)
                     {
                         result.Status = OperationStatus.Failed;
                     }
-                    if (statusCode == HttpStatusCode.NotFound)
+                    if (statusCode == HttpStatusCode.OK)
                     {
-                        result.Status = OperationStatus.Failed;
+                        result.Status = OperationStatus.Succeeded;
                     }
                     if (statusCode == HttpStatusCode.Created)
                     {
                         result.Status = OperationStatus.Succeeded;
                     }
                     if (statusCode == HttpStatusCode.NoContent)
-                    {
-                        result.Status = OperationStatus.Succeeded;
-                    }
-                    if (statusCode == HttpStatusCode.OK)
                     {
                         result.Status = OperationStatus.Succeeded;
                     }

@@ -143,7 +143,7 @@ namespace Microsoft.Azure.Management.Automation
             url = url + "/compilationjobs/";
             url = url + Guid.NewGuid().ToString();
             List<string> queryParameters = new List<string>();
-            queryParameters.Add("api-version=2015-01-01-preview");
+            queryParameters.Add("api-version=2015-10-31");
             if (queryParameters.Count > 0)
             {
                 url = url + "?" + string.Join("&", queryParameters);
@@ -208,6 +208,11 @@ namespace Microsoft.Azure.Management.Automation
                         }
                         propertiesValue["parameters"] = parametersDictionary;
                     }
+                }
+                
+                if (parameters.Properties.RunOn != null)
+                {
+                    propertiesValue["runOn"] = parameters.Properties.RunOn;
                 }
                 
                 if (parameters.Name != null)
@@ -281,6 +286,13 @@ namespace Microsoft.Azure.Management.Automation
                             DscCompilationJob dscCompilationJobInstance = new DscCompilationJob();
                             result.DscCompilationJob = dscCompilationJobInstance;
                             
+                            JToken idValue = responseDoc["id"];
+                            if (idValue != null && idValue.Type != JTokenType.Null)
+                            {
+                                string idInstance = ((string)idValue);
+                                dscCompilationJobInstance.Id = idInstance;
+                            }
+                            
                             JToken propertiesValue2 = responseDoc["properties"];
                             if (propertiesValue2 != null && propertiesValue2.Type != JTokenType.Null)
                             {
@@ -306,6 +318,13 @@ namespace Microsoft.Azure.Management.Automation
                                 {
                                     string startedByInstance = ((string)startedByValue);
                                     propertiesInstance.StartedBy = startedByInstance;
+                                }
+                                
+                                JToken runOnValue = propertiesValue2["runOn"];
+                                if (runOnValue != null && runOnValue.Type != JTokenType.Null)
+                                {
+                                    string runOnInstance = ((string)runOnValue);
+                                    propertiesInstance.RunOn = runOnInstance;
                                 }
                                 
                                 JToken jobIdValue = propertiesValue2["jobId"];
@@ -479,7 +498,7 @@ namespace Microsoft.Azure.Management.Automation
             url = url + "/compilationjobs/";
             url = url + Uri.EscapeDataString(jobId.ToString());
             List<string> queryParameters = new List<string>();
-            queryParameters.Add("api-version=2015-01-01-preview");
+            queryParameters.Add("api-version=2015-10-31");
             if (queryParameters.Count > 0)
             {
                 url = url + "?" + string.Join("&", queryParameters);
@@ -558,6 +577,13 @@ namespace Microsoft.Azure.Management.Automation
                             DscCompilationJob dscCompilationJobInstance = new DscCompilationJob();
                             result.DscCompilationJob = dscCompilationJobInstance;
                             
+                            JToken idValue = responseDoc["id"];
+                            if (idValue != null && idValue.Type != JTokenType.Null)
+                            {
+                                string idInstance = ((string)idValue);
+                                dscCompilationJobInstance.Id = idInstance;
+                            }
+                            
                             JToken propertiesValue = responseDoc["properties"];
                             if (propertiesValue != null && propertiesValue.Type != JTokenType.Null)
                             {
@@ -583,6 +609,13 @@ namespace Microsoft.Azure.Management.Automation
                                 {
                                     string startedByInstance = ((string)startedByValue);
                                     propertiesInstance.StartedBy = startedByInstance;
+                                }
+                                
+                                JToken runOnValue = propertiesValue["runOn"];
+                                if (runOnValue != null && runOnValue.Type != JTokenType.Null)
+                                {
+                                    string runOnInstance = ((string)runOnValue);
+                                    propertiesInstance.RunOn = runOnInstance;
                                 }
                                 
                                 JToken jobIdValue = propertiesValue["jobId"];
@@ -765,7 +798,7 @@ namespace Microsoft.Azure.Management.Automation
             url = url + "/streams/";
             url = url + Uri.EscapeDataString(jobStreamId);
             List<string> queryParameters = new List<string>();
-            queryParameters.Add("api-version=2015-01-01-preview");
+            queryParameters.Add("api-version=2015-10-31");
             if (queryParameters.Count > 0)
             {
                 url = url + "?" + string.Join("&", queryParameters);
@@ -843,6 +876,13 @@ namespace Microsoft.Azure.Management.Automation
                         {
                             JobStream jobStreamInstance = new JobStream();
                             result.JobStream = jobStreamInstance;
+                            
+                            JToken idValue = responseDoc["id"];
+                            if (idValue != null && idValue.Type != JTokenType.Null)
+                            {
+                                string idInstance = ((string)idValue);
+                                jobStreamInstance.Id = idInstance;
+                            }
                             
                             JToken propertiesValue = responseDoc["properties"];
                             if (propertiesValue != null && propertiesValue.Type != JTokenType.Null)
@@ -1012,7 +1052,7 @@ namespace Microsoft.Azure.Management.Automation
             {
                 queryParameters.Add("$filter=" + string.Join(" and ", odataFilter));
             }
-            queryParameters.Add("api-version=2015-01-01-preview");
+            queryParameters.Add("api-version=2015-10-31");
             if (queryParameters.Count > 0)
             {
                 url = url + "?" + string.Join("&", queryParameters);
@@ -1097,6 +1137,13 @@ namespace Microsoft.Azure.Management.Automation
                                     DscCompilationJob dscCompilationJobInstance = new DscCompilationJob();
                                     result.DscCompilationJobs.Add(dscCompilationJobInstance);
                                     
+                                    JToken idValue = valueValue["id"];
+                                    if (idValue != null && idValue.Type != JTokenType.Null)
+                                    {
+                                        string idInstance = ((string)idValue);
+                                        dscCompilationJobInstance.Id = idInstance;
+                                    }
+                                    
                                     JToken propertiesValue = valueValue["properties"];
                                     if (propertiesValue != null && propertiesValue.Type != JTokenType.Null)
                                     {
@@ -1122,6 +1169,13 @@ namespace Microsoft.Azure.Management.Automation
                                         {
                                             string startedByInstance = ((string)startedByValue);
                                             propertiesInstance.StartedBy = startedByInstance;
+                                        }
+                                        
+                                        JToken runOnValue = propertiesValue["runOn"];
+                                        if (runOnValue != null && runOnValue.Type != JTokenType.Null)
+                                        {
+                                            string runOnInstance = ((string)runOnValue);
+                                            propertiesInstance.RunOn = runOnInstance;
                                         }
                                         
                                         JToken jobIdValue = propertiesValue["jobId"];
@@ -1351,6 +1405,13 @@ namespace Microsoft.Azure.Management.Automation
                                     DscCompilationJob dscCompilationJobInstance = new DscCompilationJob();
                                     result.DscCompilationJobs.Add(dscCompilationJobInstance);
                                     
+                                    JToken idValue = valueValue["id"];
+                                    if (idValue != null && idValue.Type != JTokenType.Null)
+                                    {
+                                        string idInstance = ((string)idValue);
+                                        dscCompilationJobInstance.Id = idInstance;
+                                    }
+                                    
                                     JToken propertiesValue = valueValue["properties"];
                                     if (propertiesValue != null && propertiesValue.Type != JTokenType.Null)
                                     {
@@ -1376,6 +1437,13 @@ namespace Microsoft.Azure.Management.Automation
                                         {
                                             string startedByInstance = ((string)startedByValue);
                                             propertiesInstance.StartedBy = startedByInstance;
+                                        }
+                                        
+                                        JToken runOnValue = propertiesValue["runOn"];
+                                        if (runOnValue != null && runOnValue.Type != JTokenType.Null)
+                                        {
+                                            string runOnInstance = ((string)runOnValue);
+                                            propertiesInstance.RunOn = runOnInstance;
                                         }
                                         
                                         JToken jobIdValue = propertiesValue["jobId"];

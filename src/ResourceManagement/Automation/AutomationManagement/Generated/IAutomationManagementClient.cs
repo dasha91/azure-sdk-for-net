@@ -243,11 +243,31 @@ namespace Microsoft.Azure.Management.Automation
         }
         
         /// <summary>
+        /// Service operation for automation linked workspace.  (see
+        /// http://aka.ms/azureautomationsdk/linkedworkspaceoperations for
+        /// more information)
+        /// </summary>
+        ILinkedWorkspaceOperations LinkedWorkspace
+        {
+            get; 
+        }
+        
+        /// <summary>
         /// Service operation for automation modules.  (see
         /// http://aka.ms/azureautomationsdk/moduleoperations for more
         /// information)
         /// </summary>
         IModuleOperations Modules
+        {
+            get; 
+        }
+        
+        /// <summary>
+        /// Service operation for automation object data types.  (see
+        /// http://aka.ms/azureautomationsdk/objectdatatypeoperations for more
+        /// information)
+        /// </summary>
+        IObjectDataTypeOperations ObjectDataTypes
         {
             get; 
         }
@@ -283,6 +303,16 @@ namespace Microsoft.Azure.Management.Automation
         }
         
         /// <summary>
+        /// Service operation for automation statistics.  (see
+        /// http://aka.ms/azureautomationsdk/statisticsoperations for more
+        /// information)
+        /// </summary>
+        IStatisticsOperations Statistics
+        {
+            get; 
+        }
+        
+        /// <summary>
         /// Service operation for automation test jobs.  (see
         /// http://aka.ms/azureautomationsdk/testjoboperations for more
         /// information)
@@ -293,11 +323,61 @@ namespace Microsoft.Azure.Management.Automation
         }
         
         /// <summary>
+        /// Service operation for automation type fields.  (see
+        /// http://aka.ms/azureautomationsdk/typefieldoperations for more
+        /// information)
+        /// </summary>
+        ITypeFieldOperations TypeFields
+        {
+            get; 
+        }
+        
+        /// <summary>
+        /// Service operation for automation usages.  (see
+        /// http://aka.ms/azureautomationsdk/usageoperations for more
+        /// information)
+        /// </summary>
+        IUsageOperations Usages
+        {
+            get; 
+        }
+        
+        /// <summary>
         /// Service operation for automation variables.  (see
         /// http://aka.ms/azureautomationsdk/variableoperations for more
         /// information)
         /// </summary>
         IVariableOperations Variables
+        {
+            get; 
+        }
+        
+        /// <summary>
+        /// Service operation for automation watcher actions.  (see
+        /// http://aka.ms/azureautomationsdk/watcheractionoperations for more
+        /// information)
+        /// </summary>
+        IWatcherActionOperations WatcherActions
+        {
+            get; 
+        }
+        
+        /// <summary>
+        /// Service operation for automation watchers.  (see
+        /// http://aka.ms/azureautomationsdk/watcheroperations for more
+        /// information)
+        /// </summary>
+        IWatcherOperations Watchers
+        {
+            get; 
+        }
+        
+        /// <summary>
+        /// Service operation for automation watcher streams.  (see
+        /// http://aka.ms/azureautomationsdk/watcherstreamoperations for more
+        /// information)
+        /// </summary>
+        IWatcherStreamOperations WatcherStreams
         {
             get; 
         }
