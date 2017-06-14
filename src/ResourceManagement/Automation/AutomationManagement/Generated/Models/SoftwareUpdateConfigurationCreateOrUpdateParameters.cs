@@ -26,25 +26,16 @@ using Microsoft.Azure.Management.Automation.Models;
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// The parameters supplied to the create or update of software update
+    /// configuration operation.
     /// </summary>
-    public partial class Job
+    public partial class SoftwareUpdateConfigurationCreateOrUpdateParameters
     {
-        private string _id;
-        
-        /// <summary>
-        /// Optional. Gets or sets the id of the resource.
-        /// </summary>
-        public string Id
-        {
-            get { return this._id; }
-            set { this._id = value; }
-        }
-        
         private string _name;
         
         /// <summary>
-        /// Optional. Gets or sets the name of the resource.
+        /// Required. Gets or sets the name of the software update
+        /// configuration.
         /// </summary>
         public string Name
         {
@@ -52,22 +43,44 @@ namespace Microsoft.Azure.Management.Automation.Models
             set { this._name = value; }
         }
         
-        private JobProperties _properties;
+        private SoftwareUpdateConfigurationCreateOrUpdateProperties _properties;
         
         /// <summary>
-        /// Optional. Gets or sets the properties of the job.
+        /// Required. Gets or sets the properties of the software update
+        /// configuration.
         /// </summary>
-        public JobProperties Properties
+        public SoftwareUpdateConfigurationCreateOrUpdateProperties Properties
         {
             get { return this._properties; }
             set { this._properties = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the
+        /// SoftwareUpdateConfigurationCreateOrUpdateParameters class.
         /// </summary>
-        public Job()
+        public SoftwareUpdateConfigurationCreateOrUpdateParameters()
         {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the
+        /// SoftwareUpdateConfigurationCreateOrUpdateParameters class with
+        /// required arguments.
+        /// </summary>
+        public SoftwareUpdateConfigurationCreateOrUpdateParameters(string name, SoftwareUpdateConfigurationCreateOrUpdateProperties properties)
+            : this()
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+            if (properties == null)
+            {
+                throw new ArgumentNullException("properties");
+            }
+            this.Name = name;
+            this.Properties = properties;
         }
     }
 }

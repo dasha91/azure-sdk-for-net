@@ -26,9 +26,9 @@ using Microsoft.Azure.Management.Automation.Models;
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// Definition of the software update configuration.
     /// </summary>
-    public partial class Job
+    public partial class SoftwareUpdateConfiguration
     {
         private string _id;
         
@@ -44,7 +44,8 @@ namespace Microsoft.Azure.Management.Automation.Models
         private string _name;
         
         /// <summary>
-        /// Optional. Gets or sets the name of the resource.
+        /// Optional. Gets or sets the name of the software update
+        /// configuration.
         /// </summary>
         public string Name
         {
@@ -52,21 +53,22 @@ namespace Microsoft.Azure.Management.Automation.Models
             set { this._name = value; }
         }
         
-        private JobProperties _properties;
+        private SoftwareUpdateConfigurationProperties _properties;
         
         /// <summary>
-        /// Optional. Gets or sets the properties of the job.
+        /// Optional. Gets or sets the properties of the software update
+        /// configuration.
         /// </summary>
-        public JobProperties Properties
+        public SoftwareUpdateConfigurationProperties Properties
         {
             get { return this._properties; }
             set { this._properties = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the SoftwareUpdateConfiguration class.
         /// </summary>
-        public Job()
+        public SoftwareUpdateConfiguration()
         {
         }
     }

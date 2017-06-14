@@ -43,6 +43,18 @@ namespace Microsoft.Azure.Management.Automation.Models
             set { this._configuration = value; }
         }
         
+        private bool _incrementBuildVersion;
+        
+        /// <summary>
+        /// Optional. Gets or sets the if a new build version of
+        /// NodeConfiguration is required.
+        /// </summary>
+        public bool IncrementBuildVersion
+        {
+            get { return this._incrementBuildVersion; }
+            set { this._incrementBuildVersion = value; }
+        }
+        
         private IDictionary<string, string> _parameters;
         
         /// <summary>
