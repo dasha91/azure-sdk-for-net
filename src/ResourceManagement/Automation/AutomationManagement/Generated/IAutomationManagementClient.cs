@@ -303,6 +303,16 @@ namespace Microsoft.Azure.Management.Automation
         }
         
         /// <summary>
+        /// Service operation for automation variables.  (see
+        /// http://aka.ms/azureautomationsdk/variableoperations for more
+        /// information)
+        /// </summary>
+        ISoftwareUpdateConfigurationOperations SoftwareUpdateConfigurations
+        {
+            get; 
+        }
+        
+        /// <summary>
         /// Service operation for automation statistics.  (see
         /// http://aka.ms/azureautomationsdk/statisticsoperations for more
         /// information)

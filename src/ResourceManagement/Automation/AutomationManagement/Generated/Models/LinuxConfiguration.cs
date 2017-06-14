@@ -20,54 +20,47 @@
 // code is regenerated.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Azure.Management.Automation.Models;
+using Hyak.Common;
 
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// The udpate deployment linux configuration.
     /// </summary>
-    public partial class Job
+    public partial class LinuxConfiguration
     {
-        private string _id;
+        private IList<string> _excludedPackageNameMasks;
         
         /// <summary>
-        /// Optional. Gets or sets the id of the resource.
+        /// Optional. Gets or sets the excluded packages of software update
+        /// configuration.
         /// </summary>
-        public string Id
+        public IList<string> ExcludedPackageNameMasks
         {
-            get { return this._id; }
-            set { this._id = value; }
+            get { return this._excludedPackageNameMasks; }
+            set { this._excludedPackageNameMasks = value; }
         }
         
-        private string _name;
+        private string _includedPackageClassifications;
         
         /// <summary>
-        /// Optional. Gets or sets the name of the resource.
+        /// Optional. Gets or sets the linux update package classifications of
+        /// software update configuration.
         /// </summary>
-        public string Name
+        public string IncludedPackageClassifications
         {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-        
-        private JobProperties _properties;
-        
-        /// <summary>
-        /// Optional. Gets or sets the properties of the job.
-        /// </summary>
-        public JobProperties Properties
-        {
-            get { return this._properties; }
-            set { this._properties = value; }
+            get { return this._includedPackageClassifications; }
+            set { this._includedPackageClassifications = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the LinuxConfiguration class.
         /// </summary>
-        public Job()
+        public LinuxConfiguration()
         {
+            this.ExcludedPackageNameMasks = new LazyList<string>();
         }
     }
 }

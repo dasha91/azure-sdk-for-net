@@ -21,52 +21,32 @@
 
 using System;
 using System.Linq;
+using Microsoft.Azure;
 using Microsoft.Azure.Management.Automation.Models;
 
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// The response model for the get software update configuration operation.
     /// </summary>
-    public partial class Job
+    public partial class SoftwareUpdateConfigurationGetResponse : AzureOperationResponse
     {
-        private string _id;
+        private SoftwareUpdateConfiguration _softwareUpdateConfiguration;
         
         /// <summary>
-        /// Optional. Gets or sets the id of the resource.
+        /// Optional. Gets or sets a software update configuration.
         /// </summary>
-        public string Id
+        public SoftwareUpdateConfiguration SoftwareUpdateConfiguration
         {
-            get { return this._id; }
-            set { this._id = value; }
-        }
-        
-        private string _name;
-        
-        /// <summary>
-        /// Optional. Gets or sets the name of the resource.
-        /// </summary>
-        public string Name
-        {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-        
-        private JobProperties _properties;
-        
-        /// <summary>
-        /// Optional. Gets or sets the properties of the job.
-        /// </summary>
-        public JobProperties Properties
-        {
-            get { return this._properties; }
-            set { this._properties = value; }
+            get { return this._softwareUpdateConfiguration; }
+            set { this._softwareUpdateConfiguration = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the
+        /// SoftwareUpdateConfigurationGetResponse class.
         /// </summary>
-        public Job()
+        public SoftwareUpdateConfigurationGetResponse()
         {
         }
     }
