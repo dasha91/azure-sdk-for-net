@@ -65,6 +65,17 @@ namespace Microsoft.Azure.Management.Automation.Models
             set { this._parameterSets = value; }
         }
         
+        private string _type;
+        
+        /// <summary>
+        /// Optional. Gets or sets the type of the activity.
+        /// </summary>
+        public string Type
+        {
+            get { return this._type; }
+            set { this._type = value; }
+        }
+        
         /// <summary>
         /// Initializes a new instance of the ActivityProperties class.
         /// </summary>

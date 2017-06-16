@@ -20,54 +20,47 @@
 // code is regenerated.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Azure.Management.Automation.Models;
+using Hyak.Common;
 
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// The udpate deployment windows configuration.
     /// </summary>
-    public partial class Job
+    public partial class WindowsConfiguration
     {
-        private string _id;
+        private IList<string> _excludedKbNumbers;
         
         /// <summary>
-        /// Optional. Gets or sets the id of the resource.
+        /// Optional. Gets or sets the excluded kb number of software update
+        /// configuration.
         /// </summary>
-        public string Id
+        public IList<string> ExcludedKbNumbers
         {
-            get { return this._id; }
-            set { this._id = value; }
+            get { return this._excludedKbNumbers; }
+            set { this._excludedKbNumbers = value; }
         }
         
-        private string _name;
+        private string _includedUpdateClassifications;
         
         /// <summary>
-        /// Optional. Gets or sets the name of the resource.
+        /// Optional. Gets or sets the windows update classifications of
+        /// software update configuration.
         /// </summary>
-        public string Name
+        public string IncludedUpdateClassifications
         {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-        
-        private JobProperties _properties;
-        
-        /// <summary>
-        /// Optional. Gets or sets the properties of the job.
-        /// </summary>
-        public JobProperties Properties
-        {
-            get { return this._properties; }
-            set { this._properties = value; }
+            get { return this._includedUpdateClassifications; }
+            set { this._includedUpdateClassifications = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the WindowsConfiguration class.
         /// </summary>
-        public Job()
+        public WindowsConfiguration()
         {
+            this.ExcludedKbNumbers = new LazyList<string>();
         }
     }
 }

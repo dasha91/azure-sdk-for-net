@@ -26,47 +26,39 @@ using Microsoft.Azure.Management.Automation.Models;
 namespace Microsoft.Azure.Management.Automation.Models
 {
     /// <summary>
-    /// Definition of the job.
+    /// Definition of the software update configuration property.
     /// </summary>
-    public partial class Job
+    public partial class SoftwareUpdateConfigurationCreateOrUpdateProperties
     {
-        private string _id;
+        private ScheduleProperties _scheduleProperties;
         
         /// <summary>
-        /// Optional. Gets or sets the id of the resource.
+        /// Optional. Gets or sets the scheduler properties of software update
+        /// configuration.
         /// </summary>
-        public string Id
+        public ScheduleProperties ScheduleProperties
         {
-            get { return this._id; }
-            set { this._id = value; }
+            get { return this._scheduleProperties; }
+            set { this._scheduleProperties = value; }
         }
         
-        private string _name;
+        private UpdateConfiguration _updateConfiguration;
         
         /// <summary>
-        /// Optional. Gets or sets the name of the resource.
+        /// Optional. Gets or sets the update configuration of software update
+        /// configuration.
         /// </summary>
-        public string Name
+        public UpdateConfiguration UpdateConfiguration
         {
-            get { return this._name; }
-            set { this._name = value; }
-        }
-        
-        private JobProperties _properties;
-        
-        /// <summary>
-        /// Optional. Gets or sets the properties of the job.
-        /// </summary>
-        public JobProperties Properties
-        {
-            get { return this._properties; }
-            set { this._properties = value; }
+            get { return this._updateConfiguration; }
+            set { this._updateConfiguration = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the Job class.
+        /// Initializes a new instance of the
+        /// SoftwareUpdateConfigurationCreateOrUpdateProperties class.
         /// </summary>
-        public Job()
+        public SoftwareUpdateConfigurationCreateOrUpdateProperties()
         {
         }
     }

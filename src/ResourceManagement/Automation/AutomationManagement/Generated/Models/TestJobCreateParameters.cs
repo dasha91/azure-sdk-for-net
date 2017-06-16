@@ -31,6 +31,18 @@ namespace Microsoft.Azure.Management.Automation.Models
     /// </summary>
     public partial class TestJobCreateParameters
     {
+        private int? _logActivityTrace;
+        
+        /// <summary>
+        /// Optional. Gets or sets the option to log activity trace of the
+        /// runbook.
+        /// </summary>
+        public int? LogActivityTrace
+        {
+            get { return this._logActivityTrace; }
+            set { this._logActivityTrace = value; }
+        }
+        
         private IDictionary<string, string> _parameters;
         
         /// <summary>
