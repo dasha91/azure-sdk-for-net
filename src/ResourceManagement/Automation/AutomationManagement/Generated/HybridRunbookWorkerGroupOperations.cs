@@ -413,11 +413,11 @@ namespace Microsoft.Azure.Management.Automation
                                         hybridRunbookWorkerInstance.IpAddress = ipAddressInstance;
                                     }
                                     
-                                    JToken lastSeenValue = hybridRunbookWorkersValue["lastSeen"];
-                                    if (lastSeenValue != null && lastSeenValue.Type != JTokenType.Null)
+                                    JToken lastSeenDateTimeValue = hybridRunbookWorkersValue["lastSeenDateTime"];
+                                    if (lastSeenDateTimeValue != null && lastSeenDateTimeValue.Type != JTokenType.Null)
                                     {
-                                        DateTimeOffset lastSeenInstance = ((DateTimeOffset)lastSeenValue);
-                                        hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenInstance;
+                                        DateTimeOffset lastSeenDateTimeInstance = ((DateTimeOffset)lastSeenDateTimeValue);
+                                        hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenDateTimeInstance;
                                     }
                                     
                                     JToken registrationTimeValue = hybridRunbookWorkersValue["registrationTime"];
@@ -441,6 +441,13 @@ namespace Microsoft.Azure.Management.Automation
                                     string nameInstance3 = ((string)nameValue3);
                                     credentialInstance.Name = nameInstance3;
                                 }
+                            }
+                            
+                            JToken groupTypeValue = responseDoc["groupType"];
+                            if (groupTypeValue != null && groupTypeValue.Type != JTokenType.Null)
+                            {
+                                string groupTypeInstance = ((string)groupTypeValue);
+                                hybridRunbookWorkerGroupInstance.GroupType = groupTypeInstance;
                             }
                         }
                         
@@ -654,11 +661,11 @@ namespace Microsoft.Azure.Management.Automation
                                                 hybridRunbookWorkerInstance.IpAddress = ipAddressInstance;
                                             }
                                             
-                                            JToken lastSeenValue = hybridRunbookWorkersValue["lastSeen"];
-                                            if (lastSeenValue != null && lastSeenValue.Type != JTokenType.Null)
+                                            JToken lastSeenDateTimeValue = hybridRunbookWorkersValue["lastSeenDateTime"];
+                                            if (lastSeenDateTimeValue != null && lastSeenDateTimeValue.Type != JTokenType.Null)
                                             {
-                                                DateTimeOffset lastSeenInstance = ((DateTimeOffset)lastSeenValue);
-                                                hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenInstance;
+                                                DateTimeOffset lastSeenDateTimeInstance = ((DateTimeOffset)lastSeenDateTimeValue);
+                                                hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenDateTimeInstance;
                                             }
                                             
                                             JToken registrationTimeValue = hybridRunbookWorkersValue["registrationTime"];
@@ -682,6 +689,13 @@ namespace Microsoft.Azure.Management.Automation
                                             string nameInstance3 = ((string)nameValue3);
                                             credentialInstance.Name = nameInstance3;
                                         }
+                                    }
+                                    
+                                    JToken groupTypeValue = valueValue["groupType"];
+                                    if (groupTypeValue != null && groupTypeValue.Type != JTokenType.Null)
+                                    {
+                                        string groupTypeInstance = ((string)groupTypeValue);
+                                        hybridRunbookWorkerGroupInstance.GroupType = groupTypeInstance;
                                     }
                                 }
                             }
@@ -872,11 +886,11 @@ namespace Microsoft.Azure.Management.Automation
                                                 hybridRunbookWorkerInstance.IpAddress = ipAddressInstance;
                                             }
                                             
-                                            JToken lastSeenValue = hybridRunbookWorkersValue["lastSeen"];
-                                            if (lastSeenValue != null && lastSeenValue.Type != JTokenType.Null)
+                                            JToken lastSeenDateTimeValue = hybridRunbookWorkersValue["lastSeenDateTime"];
+                                            if (lastSeenDateTimeValue != null && lastSeenDateTimeValue.Type != JTokenType.Null)
                                             {
-                                                DateTimeOffset lastSeenInstance = ((DateTimeOffset)lastSeenValue);
-                                                hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenInstance;
+                                                DateTimeOffset lastSeenDateTimeInstance = ((DateTimeOffset)lastSeenDateTimeValue);
+                                                hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenDateTimeInstance;
                                             }
                                             
                                             JToken registrationTimeValue = hybridRunbookWorkersValue["registrationTime"];
@@ -900,6 +914,13 @@ namespace Microsoft.Azure.Management.Automation
                                             string nameInstance3 = ((string)nameValue3);
                                             credentialInstance.Name = nameInstance3;
                                         }
+                                    }
+                                    
+                                    JToken groupTypeValue = valueValue["groupType"];
+                                    if (groupTypeValue != null && groupTypeValue.Type != JTokenType.Null)
+                                    {
+                                        string groupTypeInstance = ((string)groupTypeValue);
+                                        hybridRunbookWorkerGroupInstance.GroupType = groupTypeInstance;
                                     }
                                 }
                             }
@@ -1163,11 +1184,11 @@ namespace Microsoft.Azure.Management.Automation
                                         hybridRunbookWorkerInstance.IpAddress = ipAddressInstance;
                                     }
                                     
-                                    JToken lastSeenValue = hybridRunbookWorkersValue["lastSeen"];
-                                    if (lastSeenValue != null && lastSeenValue.Type != JTokenType.Null)
+                                    JToken lastSeenDateTimeValue = hybridRunbookWorkersValue["lastSeenDateTime"];
+                                    if (lastSeenDateTimeValue != null && lastSeenDateTimeValue.Type != JTokenType.Null)
                                     {
-                                        DateTimeOffset lastSeenInstance = ((DateTimeOffset)lastSeenValue);
-                                        hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenInstance;
+                                        DateTimeOffset lastSeenDateTimeInstance = ((DateTimeOffset)lastSeenDateTimeValue);
+                                        hybridRunbookWorkerInstance.LastSeenDateTime = lastSeenDateTimeInstance;
                                     }
                                     
                                     JToken registrationTimeValue = hybridRunbookWorkersValue["registrationTime"];
@@ -1191,6 +1212,13 @@ namespace Microsoft.Azure.Management.Automation
                                     string nameInstance3 = ((string)nameValue3);
                                     credentialInstance.Name = nameInstance3;
                                 }
+                            }
+                            
+                            JToken groupTypeValue = responseDoc["groupType"];
+                            if (groupTypeValue != null && groupTypeValue.Type != JTokenType.Null)
+                            {
+                                string groupTypeInstance = ((string)groupTypeValue);
+                                hybridRunbookWorkerGroupInstance.GroupType = groupTypeInstance;
                             }
                         }
                         

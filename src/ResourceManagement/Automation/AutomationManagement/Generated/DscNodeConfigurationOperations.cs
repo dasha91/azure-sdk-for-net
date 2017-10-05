@@ -236,7 +236,7 @@ namespace Microsoft.Azure.Management.Automation
                     configurationValue["name"] = parameters.Configuration.Name;
                 }
                 
-                dscNodeConfigurationCreateOrUpdateParametersValue["NewNodeConfigurationBuildVersionRequired"] = parameters.IncrementBuildVersion;
+                dscNodeConfigurationCreateOrUpdateParametersValue["incrementNodeConfigurationBuild"] = parameters.IncrementNodeConfigurationBuild;
                 
                 requestContent = requestDoc.ToString(Newtonsoft.Json.Formatting.Indented);
                 httpRequest.Content = new StringContent(requestContent, Encoding.UTF8);

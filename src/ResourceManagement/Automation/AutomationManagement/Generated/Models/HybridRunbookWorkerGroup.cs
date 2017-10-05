@@ -43,6 +43,17 @@ namespace Microsoft.Azure.Management.Automation.Models
             set { this._credential = value; }
         }
         
+        private string _groupType;
+        
+        /// <summary>
+        /// Optional. Gets the type of a worker group.
+        /// </summary>
+        public string GroupType
+        {
+            get { return this._groupType; }
+            set { this._groupType = value; }
+        }
+        
         private IList<HybridRunbookWorker> _hybridRunbookWorkers;
         
         /// <summary>

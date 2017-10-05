@@ -20,7 +20,9 @@
 // code is regenerated.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Hyak.Common;
 using Microsoft.Azure.Management.Automation.Models;
 
 namespace Microsoft.Azure.Management.Automation.Models
@@ -39,6 +41,17 @@ namespace Microsoft.Azure.Management.Automation.Models
         {
             get { return this._accountId; }
             set { this._accountId = value; }
+        }
+        
+        private IList<DscNodeExtensionHandlerAssociationProperty> _extensionHandler;
+        
+        /// <summary>
+        /// Optional. Gets or sets the configuration of the node.
+        /// </summary>
+        public IList<DscNodeExtensionHandlerAssociationProperty> ExtensionHandler
+        {
+            get { return this._extensionHandler; }
+            set { this._extensionHandler = value; }
         }
         
         private string _ip;
@@ -112,6 +125,7 @@ namespace Microsoft.Azure.Management.Automation.Models
         /// </summary>
         public DscNode()
         {
+            this.ExtensionHandler = new LazyList<DscNodeExtensionHandlerAssociationProperty>();
         }
     }
 }

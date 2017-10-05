@@ -215,7 +215,7 @@ namespace Microsoft.Azure.Management.Automation
                     propertiesValue["runOn"] = parameters.Properties.RunOn;
                 }
                 
-                propertiesValue["NewNodeConfigurationBuildVersionRequired"] = parameters.Properties.IncrementBuildVersion;
+                propertiesValue["incrementNodeConfigurationBuild"] = parameters.Properties.IncrementNodeConfigurationBuild;
                 
                 if (parameters.Name != null)
                 {
